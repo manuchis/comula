@@ -5,6 +5,11 @@ var mean = require('meanio');
 
 // Creates and serves mean application
 mean.serve({ /*options placeholder*/ }, function(app, config) {
-	var port = config.https && config.https.port ? config.https.port : config.http.port;
-	console.log('Mean app started on port ' + port + ' (' + process.env.NODE_ENV + ')');
+	var port = Number(process.env.PORT || 5000);
+app.listen(port, function() {
+  console.log("Listening on " + port);
 });
+	//config.https && config.https.port ? config.https.port : config.http.port;	
+	//console.log('Mean app started on port ' + port + ' (' + process.env.NODE_ENV + ')');
+});
+	
